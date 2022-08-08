@@ -52,11 +52,7 @@ body{
     color: gold;
 }
 
-.wrapper-container{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, 250px);
-}
+
 
 .card{
     margin-top: 20px;
@@ -71,6 +67,20 @@ body{
     color: gray;
 }
 
+.wrapper-container{
+    display: grid;
+    justify-content: center;
+    grid-template-columns:  repeat(auto-fit, 250px);
+}
+
+
+@media only screen and (min-width: 2000px) {
+    .wrapper-container{
+        display: grid;
+        justify-content: center;
+        grid-template-columns:  repeat(5, 1fr);
+    }
+}
 
 @media only screen and (min-width: 800px) {
 
@@ -179,6 +189,7 @@ body{
     width: 70%;
     margin: auto;
 }
+
 }
 
 @media only screen and (max-width: 800px) {
