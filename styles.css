@@ -74,17 +74,7 @@ body{
 }
 
 
-@media only screen and (min-width: 2000px) {
-    .wrapper-container{
-        display: grid;
-        justify-content: center;
-        grid-template-columns:  repeat(5, 1fr);
-    }
-}
 
-@media only screen and (min-width: 800px) {
-
-    
 
 .nav-alt{
     display: none;
@@ -115,10 +105,12 @@ body{
     outline: none;
 }
 .search-input{
-    padding: 15px 500px 15px 0px;
+    /* padding: 15px 500px 15px 0px; */
+    flex-grow: 2;
+    width: 30vw;
+    height: 4vh;
     margin-right: 20px;
     border: none;
-
 }
 .search-button{
     border: none;
@@ -126,7 +118,6 @@ body{
 }
 .navLi{
     display: inline-block;
-
     padding:  2px 0 ;
 }
 .navHover:hover{
@@ -190,6 +181,22 @@ body{
     margin: auto;
 }
 
+
+@media only screen and (min-width: 2000px) {
+    .wrapper-container{
+        display: grid;
+        justify-content: center;
+        grid-template-columns:  repeat(5, 1fr);
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .search-input{
+        width: 9.5vw;
+    }
+    .nav-form{
+        margin-right: 0;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -210,20 +217,15 @@ body{
 
     .header{
         flex-direction: column-reverse;
+        width: 100%;
+        flex-wrap: wrap;
+        
     }
     .header-text{
         align-self: stretch;
         text-align: center;
-        background-color: white;
-        box-shadow: 10px 5px 5px grey;
-        padding-left: 10px;
+        width: auto;
+        margin: 0;
+    }
 
-    }
-    .header{
-        background-color: lightgray;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-    }
 }
