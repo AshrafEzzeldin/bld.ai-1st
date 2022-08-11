@@ -37,9 +37,7 @@ body{
     padding-left: 20px;
 }
 
-.alarm{
-    width: 43%;
-}
+
 
 .info{
     margin-top: 10px;
@@ -56,9 +54,14 @@ body{
 
 .card{
     margin-top: 20px;
-    display: inline-block;
     vertical-align: top;
+    width: 90%;
 }
+
+.image-card{
+    width: 100%;
+}
+
 .bold{
     font-weight: bold;
 }
@@ -69,8 +72,7 @@ body{
 
 .wrapper-container{
     display: grid;
-    justify-content: center;
-    grid-template-columns:  repeat(auto-fit, 250px);
+    grid-template-columns:  repeat(5,1fr);
 }
 
 
@@ -99,7 +101,7 @@ body{
 }
 
 .nav-form{
-    margin-right: 5px;
+    margin-right: 6px;
 }
 .search-input:focus{
     outline: none;
@@ -131,7 +133,8 @@ body{
         margin: 8px 0;
         border: 0.2px solid;
         cursor: pointer;
-}
+        
+    }
 
 
 .sign-up{
@@ -160,49 +163,84 @@ body{
 .header-text{
     background-color: white;
     box-shadow: 10px 5px 5px grey;
-    margin: 80px;
+    margin: 5%;
     padding: 10px;
     width: 300px;
+    font-size: large;
+    align-self: flex-start;
 
 }
 
+.alarm{
+    width: 30%;
+}
+
 .header{
-    width: 70%;
+    width: 90%;
     margin: auto;
-    background-color: lightgray;
+    background-color:  #f2f2f2;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+
+hr{
+    margin: 0;
+    color: grey;
 }
 
 .cources{
     padding-left: 30px;
-    width: 70%;
+    width: 90%;
     margin: auto;
 }
 
+/* .taps{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+} */
 
-@media only screen and (min-width: 2000px) {
-    .wrapper-container{
-        display: grid;
-        justify-content: center;
-        grid-template-columns:  repeat(5, 1fr);
-    }
-}
+
+
 
 @media only screen and (max-width: 1300px) {
+
+    .wrapper-container{
+        grid-template-columns:  repeat(3,1fr);
+    }
+    
+
+
+    .udemy-business{
+        display: none;
+    }
+
     .search-input{
         width: 9.5vw;
     }
-    .nav-form{
-        margin-right: 0;
+    
+    .alarm{
+        width: 40%;
+    }
+    .header{
+        width: 100%;        
     }
 }
 
 @media only screen and (max-width: 800px) {
 
+
+    .wrapper-container{
+        grid-template-columns:  repeat(2,1fr);
+    }
+
     .cources{
         padding: 10px;
+    }
+
+    .alarm{
+        width: 50%;
     }
 
     .nav-alt{
@@ -228,4 +266,12 @@ body{
         margin: 0;
     }
 
+    @media only screen and (max-width: 520px) {
+
+
+        .wrapper-container{
+            grid-template-columns:  repeat(1,1fr);
+        }
+ 
+    }    
 }
