@@ -1,0 +1,23 @@
+{
+  "name": "bld.ai-1st",
+  "version": "1.0.0",
+  "description": "1st task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "json:server": "json-server --watch data/data.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshrafEzzeldin/bld.ai-1st.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AshrafEzzeldin/bld.ai-1st/issues"
+  },
+  "homepage": "https://github.com/AshrafEzzeldin/bld.ai-1st#readme",
+  "dependencies": {
+    "json-server": "^0.12.2"
+  }
+}
