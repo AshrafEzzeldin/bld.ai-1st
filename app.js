@@ -1,10 +1,59 @@
+let size = 5;
+let info;
+let grid = "lg";
+
+function myFunctionlg(x) {
+  if (x.matches) {
+    grid = "md";
+    md = true;
+    lg = false;
+    size = 3;
+    if (info) drawCards(info);
+  } else {
+    size = 5;
+    grid = "lg";
+    if (info) drawCards(info);
+  }
+}
+
+function myFunctionmd(x) {
+  if (x.matches) {
+    grid = "sm";
+    size = 2;
+    if (info) drawCards(info);
+  } else {
+    size = 3;
+    grid = "md";
+    if (info) drawCards(info);
+  }
+}
+
+function myFunctionsm(x) {
+  if (x.matches) {
+    grid = "xsm";
+    size = 1;
+    if (info) drawCards(info);
+  } else {
+    size = 2;
+    grid = "sm";
+    if (info) drawCards(info);
+  }
+}
+let mdw = window.matchMedia("(max-width: 1300px)");
+myFunctionlg(mdw);
+mdw.addListener(myFunctionlg); // Attach listener function on state changes
+
+let smw = window.matchMedia("(max-width: 800px)");
+smw.addListener(myFunctionmd); // Attach listener function on state changes
+
+let xsmw = window.matchMedia("(max-width: 520px)");
+xsmw.addListener(myFunctionsm); // Attach listener function on state changes
+
 const newFetch = async (course) => {
   let response = await fetch("http://localhost:3000/" + course);
   let json = await response.json();
   return json;
 };
-
-let info;
 
 const removeContent = (e) => {
   let div = document.querySelector(e);
@@ -14,7 +63,7 @@ const removeContent = (e) => {
 };
 
 let drawCards = function (data, cond) {
-  removeContent(".wrapper-container");
+  removeContent(".carousel-inner");
 
   if (!info) {
     info = data;
@@ -41,8 +90,25 @@ let drawCards = function (data, cond) {
     infoDiv.appendChild(p0);
     infoDiv.appendChild(form);
   }
+  const c1 = document.querySelector(".c1");
 
-  let wrapper = document.querySelector(".wrapper-container");
+  let div1 = document.createElement("div");
+  let listOfClasses = div1.classList;
+  listOfClasses.add("carousel-item");
+  listOfClasses.add("active");
+
+  let div2 = document.createElement("div");
+  listOfClasses = div2.classList;
+  listOfClasses.add("carousel-item");
+  listOfClasses.add("active");
+
+  let cards5 = document.createElement("div");
+  listOfClasses = cards5.classList;
+  listOfClasses.add("wrapper-container");
+  listOfClasses.add(grid);
+
+  let count5 = 0;
+
   for (let i in data) {
     if (i == 0) continue;
     let object = data[i];
@@ -103,8 +169,40 @@ let drawCards = function (data, cond) {
       newDiv.appendChild(span1);
       // newDiv.appendChild(span2);
       newDiv.appendChild(p2);
-      wrapper.appendChild(newDiv);
+      cards5.appendChild(newDiv);
+      count5++;
+
+      // cards3.appendChild(newDiv.cloneNode(true));
+      // count3++;
+      // console.log(i);
+
+      if (count5 % size == 0) {
+        count5 = 0;
+        div1.appendChild(cards5);
+        cards5 = document.createElement("div");
+        listOfClasses = cards5.classList;
+        listOfClasses.add("wrapper-container");
+        listOfClasses.add(grid);
+
+        c1.appendChild(div1);
+        div1 = document.createElement("div");
+        listOfClasses = div1.classList;
+        listOfClasses.add("carousel-item");
+      }
     }
+  }
+  if (count5 != 0) {
+    count5 = 0;
+    div1.appendChild(cards5);
+    cards5 = document.createElement("div");
+    listOfClasses = cards5.classList;
+    listOfClasses.add("wrapper-container");
+    listOfClasses.add(grid);
+
+    c1.appendChild(div1);
+    div1 = document.createElement("div");
+    listOfClasses = div1.classList;
+    listOfClasses.add("carousel-item");
   }
 };
 
